@@ -16,11 +16,6 @@
   window.plugins.chart = {
     emit: function(div, item) {
       var captionElement, chartElement;
-      $.getScript('http://localhost:1986/lib/bootstrap/js/bootstrap.min.js');
-      $.getScript('http://localhost:1986/util.js');
-      $.getScript('http://localhost:1986/view.js');
-      $.getScript('http://localhost:1986/controller.js');
-      div.append('<img alt="Wildhorse Lake" src="http://localhost:1986/test.png" />');
       chartElement = $('<p />').addClass('readout').appendTo(div).text(item.data.last().last());
       return captionElement = $('<p />').html(wiki.resolveLinks(item.caption)).appendTo(div);
     },

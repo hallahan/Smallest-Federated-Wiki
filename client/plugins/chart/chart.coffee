@@ -9,18 +9,6 @@ formatTime = (time) ->
 
 window.plugins.chart =
   emit: (div, item) ->
-
-    $("head").append($("""<link rel='stylesheet' href="http://localhost:1986/lib/bootstrap/css/bootstrap.css" type="text/css" />"""))
-    $("head").append($("""<link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet""">))
-    $("head").append($("""<link href="theme/granite.css" rel="stylesheet""">))
-    $("head").append($("""<link href="broadcast.css" rel="stylesheet""">))
-
-    $.getScript('http://localhost:1986/lib/bootstrap/js/bootstrap.min.js')
-    $.getScript('http://localhost:1986/util.js')
-    $.getScript('http://localhost:1986/view.js')
-    $.getScript('http://localhost:1986/controller.js')
-
-    div.append('<img alt="Wildhorse Lake" src="http://localhost:1986/test.png" />')
     chartElement = $('<p />').addClass('readout').appendTo(div).text(item.data.last().last())
     captionElement = $('<p />').html(wiki.resolveLinks(item.caption)).appendTo(div)
   bind: (div, item) ->
