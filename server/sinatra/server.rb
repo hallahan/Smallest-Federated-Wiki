@@ -2,6 +2,7 @@ require 'rubygems'
 require 'bundler'
 require 'pathname'
 require 'pp'
+require 'em-websocket'
 Bundler.require
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
@@ -18,6 +19,13 @@ require 'favicon'
 
 require 'openid'
 require 'openid/store/filesystem'
+
+EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 8880, :debug => true) do |ws|
+  ws.onopen    { }
+  ws.onmessage { |msg| ws.send rand(1000).to_s}
+  ws.onclose   { puts "WebSocket closed" }
+  ws.onerror   { |e| puts "Error: #{e.message}" }
+end
 
 class Controller < Sinatra::Base
   set :port, 1111
