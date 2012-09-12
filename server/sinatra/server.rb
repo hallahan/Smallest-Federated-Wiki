@@ -19,6 +19,8 @@ require 'favicon'
 require 'openid'
 require 'openid/store/filesystem'
 
+require 'sinatra-websocket'
+
 class Controller < Sinatra::Base
   set :port, 1111
   set :public, File.join(APP_ROOT, "client")

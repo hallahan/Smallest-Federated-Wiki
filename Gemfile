@@ -14,6 +14,7 @@ gem "rest-client"
 gem "ruby-openid"
 gem "couchrest"
 gem "memcache-client", :require => 'memcache'
+gem "sinatra-websocket"
 
 group :development do
   gem 'ruby-debug', :require => 'ruby-debug', :platform => :mri_18
